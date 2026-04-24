@@ -20,9 +20,9 @@ namespace CSV.Writers
             {
                 string dataLine = String.Join(",", props.Select(x => x.GetValue(obj).ToString()));
                 writer.WriteLine(dataLine);
-                writer.Flush();
-            }
 
+            }
+            writer.Flush();//清空記憶體不能在foreach裡面
             writer.Close();
         }
         private static readonly object key = new object();
